@@ -3,16 +3,20 @@ import java.util.Objects;
 public final class NailSerum extends ProductInfo {
 
     private int ml;
+    private String info;
 
 
-    public NailSerum(Brand brandName, int id, double price, int quantityInStock, String name, String category, int ml) {
+    public NailSerum(Brand brandName, int id, double price, int quantityInStock, String name, String category, int ml, String info) {
         super(brandName, id, price, quantityInStock, name, category);
         this.ml = ml;
+        this.info = info;
     }
 
     public int getMl() {
         return ml;
     }
+
+    public String getInfo() {return info;}
 
     @Override       // TODO: 2019-09-14 Hur skriva ut produktinfo?
     public String toString() {
@@ -23,6 +27,7 @@ public final class NailSerum extends ProductInfo {
                 ", quantityInStock: " + getQuantityInStock() +
                 ", name: '" + getName() + '\'' +
                 ", ml: " + ml +
+                ", info " + info +
                 '}';
     }
 

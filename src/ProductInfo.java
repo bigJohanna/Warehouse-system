@@ -9,10 +9,6 @@ public abstract class ProductInfo {
     private String name;
     private String category;
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public ProductInfo(Brand brandName, int id, double price, int quantityInStock, String name, String category) {
         this.brand = brandName;
         this.productId = id;
@@ -38,6 +34,10 @@ public abstract class ProductInfo {
         return quantityInStock;
     }
 
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
     public String getName() {
         return name;
     }
@@ -59,11 +59,12 @@ public abstract class ProductInfo {
                 Double.compare(that.price, price) == 0 &&
                 quantityInStock == that.quantityInStock &&
                 Objects.equals(brand, that.brand) &&
-                Objects.equals(name, that.name);
+                Objects.equals(name, that.name) &&
+                Objects.equals(category, that.category);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, productId, price, quantityInStock, name);
+        return Objects.hash(brand, productId, price, quantityInStock, name, category);
     }
 }
